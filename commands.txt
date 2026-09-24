@@ -1,0 +1,37 @@
+git status
+
+On branch station-upgrade
+nothing to commit, working tree clean
+
+The log files do not appear in git status is because the .gitignore pattern matches log1.txt through log4.txt where ? matches one character
+
+git diff
+diff --git a/commands.txt b/commands.txt
+index e69de29..82956c5 100644
+--- a/commands.txt
++++ b/commands.txt
+@@ -0,0 +1,6 @@
++git status
++
++On branch station-upgrade
++nothing to commit, working tree clean
++
++The log files do not appear in git status is because the .gitignore pattern matches log1.txt through log4.txt where ? matches one character
+diff --git a/results/summary.md b/results/summary.md
+index 295821a..817eec6 100644
+--- a/results/summary.md
++++ b/results/summary.md
+@@ -1 +1,2 @@
+ Analysis of the first field season.
++      41
+diff --git a/scripts/03-plot.py b/scripts/03-plot.py
+index 70ea841..c5af7da 100644
+--- a/scripts/03-plot.py
++++ b/scripts/03-plot.py
+@@ -1,3 +1,4 @@
++# Reviewed for the field season report
+ # Plot the daily temperature readings
+ # Prints a simple text chart, one bar per reading.
+
+Line starting with + in git diff represents the lines that were added into the working version compared with the last committed version.
+

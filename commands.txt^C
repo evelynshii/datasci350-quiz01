@@ -1,0 +1,7 @@
+git status
+
+On branch station-upgrade
+nothing to commit, working tree clean
+
+The log files do not appear in git status is because the .gitignore pattern matches log1.txt through log4.txt where ? matches one character
+
