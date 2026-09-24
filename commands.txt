@@ -1,10 +1,51 @@
-git status
+1. git switch -c station-upgrade
+2. mkdir results
+3. touch results/summary.md
+echo "Analysis of the first field season." >> results/summary.md
+cat results/summary.md
+4. git add results
+git commit -m "Add results directory"
+5. mv data/sensor-readings.csv data/station-data.csv
+git add -A
+git commit -m "Rename sensor data file"
+6. mkdir scripts/archive && cp scripts/*.py scripts/archive/
+ls scripts/archive
+7. rm docs/notes.md
+8. git add -A
+git commit -m "Update station files"
+9. touch .gitignore
+echo "temp/" >> .gitignore
+echo "log?.txt" >> .gitignore
+10. cat .gitignore
+11. git add .gitignore && git commit -m "Add gitignore"
+12. touch log{1..4}.txt
+ls log*.txt
+13. git status
+On branch station-upgrade
+nothing to commit, working tree clean
+The log files do not appear in git status because the .gitignore pattern log?.txt matches log1.txt through log4.txt, where ? matches one character.
+14.wc -l < data/station-data.csv >> results/summary.md
+cat results/summary.md
+15. nano scripts/03-plot.py
+git diff
+Lines starting with + in git diff represent lines that were added to the working version compared with the last committed version.
+16. git add -A
+git commit -m "Update analys"
+17. git commit --amend -m "Update analysis"
+18. git switch main
+git merge station-upgrade
+19. git log --oneline
+20. git add commands.txt
+git commit -m "Add command log"
+git push origin main
 
+13. Output
 On branch station-upgrade
 nothing to commit, working tree clean
 
 The log files do not appear in git status is because the .gitignore pattern matches log1.txt through log4.txt where ? matches one character
 
+15. Output
 git diff
 diff --git a/commands.txt b/commands.txt
 index e69de29..82956c5 100644
@@ -34,4 +75,16 @@ index 70ea841..c5af7da 100644
  # Prints a simple text chart, one bar per reading.
 
 Line starting with + in git diff represents the lines that were added into the working version compared with the last committed version.
+
+19.Output
+git log --oneline
+(base) evelynshi@MacBook-Pro-465 datasci350-quiz01 % git log --oneline
+9ceaecd (HEAD -> main, station-upgrade) Update analysis
+aaeeb2d Add gitignore
+214ac83 Rename sensor data file
+f221b85 Update Station files
+535e7aa Add results directory
+a22b29e (upstream/main, upstream/HEAD, origin/main, origin/HEAD) docs(readme): note committing commands.txt before task 18 and force push for bonus 2
+b645f85 feat: quiz 01 starter files
+(base) evelynshi@MacBook-Pro-465 datasci350-quiz01 % 
 
